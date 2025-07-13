@@ -1,38 +1,56 @@
-## ✅ Temas cubiertos en esta etapa (Capítulos 6 al 8)
+```markdown
+## ✅ Temas cubiertos en esta etapa (Capítulos 9 al 14)
 
-- **Condicionales (`if`, `else`)**
-  - Evaluación de expresiones lógicas
-  - Toma de decisiones en tiempo de ejecución
-- **Directivas del preprocesador**
-  - Uso de `#define` para constantes (`PI`) y macros simples (`cubo(a)`)
-  - Inclusión de librerías con `#include <stdio.h>`
-- **Variables y tipos**
-  - Declaración de múltiples tipos (`char`, `int`, `short`, `long`, `float`, `double`)
-  - Estimación de tamaño en memoria y rangos
-  - Impresión con formato correcto usando `printf()`
+- **Ciclos (`for`, `while`, `do...while`)**
+  - Ejecución controlada con iteradores
+  - Diferencias entre evaluación antes o después de ejecutar el bloque
+  - Uso de `break` para salir del ciclo y `continue` para omitir una iteración
+
+- **Control de flujo con `switch`**
+  - Evaluación de múltiples casos sobre una sola variable
+  - Comparación con `if/else` en flexibilidad y claridad
+  - Uso combinado con ciclos y condicionales externas
+
+- **Casting de tipos**
+  - Conversión explícita entre `int`, `float`, `double`, `char`
+  - Manipulación de tipos en operaciones matemáticas
+  - Visualización con `printf()` para observar el resultado del casting
+
+- **Arreglos (`arrays`)**
+  - Declaración de arreglos de enteros
+  - Acceso por índice y visualización de elementos
+  - Introducción a impresión con ciclos `for` sobre arreglos
 
 ---
 
-## 🧮 Formatos en `printf()` para variables de distinto tipo
+## 🖨️ Ejemplo de impresión de arreglo en C
 
-| Tipo de dato             | Formato en `printf()` | Ejemplo de uso            |
-|--------------------------|------------------------|----------------------------|
-| `char`                   | `%c`                   | `printf("%c", C);`         |
-| `int`                    | `%d`                   | `printf("%d", a);`         |
-| `short`                  | `%hd`                  | `printf("%hd", e);`        |
-| `unsigned int`           | `%u`                   | `printf("%u", u);`         |
-| `long`                   | `%ld`                  | `printf("%ld", l);`        |
-| `float`                  | `%.2f`                 | `printf("%.2f", f);`       |
-| `double`                 | `%.5lf`                | `printf("%.5lf", d);`      |
+```c
+int arreglo[] = {4, 7, 2, 9, 5};
+int tam = sizeof(arreglo) / sizeof(arreglo[0]);
 
-> 🎯 Tip: Para macros con operaciones como `#define cubo(a)`, usá paréntesis para evitar ambigüedades: `((a)*(a)*(a))`
+for (int i = 0; i < tam; i++) {
+    printf("%d ", arreglo[i]);
+}
+```
+
+> 🎯 Tip: En C no existe una función nativa que imprima un arreglo completo —siempre necesitás recorrerlo manualmente.
 
 ---
 
 📅 Última actualización: *13/07/2025*  
 👨‍💻 Autor: Gabriel Jiménez  
-🚀 Progreso: 8/29 capítulos completados
+🚀 Progreso: 14/29 capítulos completados  
+📁 Archivos generados hoy:  
+- `ciclo_for.c`  
+- `ciclo_while.c`  
+- `ciclo_do_while.c`  
+- `switch.c`  
+- `casting_basico.c`  
+- `casting_suma.c`  
+- `arreglo.c`
 
 ---
 
-> Esta sección se suma al progreso previo documentado en capítulos 1 al 5. Continuamos fortaleciendo la base lógica y sintáctica del lenguaje C. 🧠⚙️📘
+> Esta sección complementa el progreso previo, reflejando práctica aplicada, comparación crítica entre estructuras y un acercamiento progresivo a la lógica estructurada en C. ⚙️🧠📘
+```
