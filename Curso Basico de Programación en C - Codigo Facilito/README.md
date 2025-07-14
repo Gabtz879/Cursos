@@ -1,56 +1,65 @@
 ```markdown
-## ✅ Temas cubiertos en esta etapa (Capítulos 9 al 14)
+## ✅ Temas cubiertos en esta etapa (Capítulos 15 al 20)
 
-- **Ciclos (`for`, `while`, `do...while`)**
-  - Ejecución controlada con iteradores
-  - Diferencias entre evaluación antes o después de ejecutar el bloque
-  - Uso de `break` para salir del ciclo y `continue` para omitir una iteración
+- **Arreglos variables y matrices**  
+  - Declaración de VLA (Variable Length Arrays) con tamaño leído en tiempo de ejecución  
+  - Inicialización y recorrido con bucle `for`  
+  - Creación y acceso a matrices 2D usando dimensiones dinámicas
 
-- **Control de flujo con `switch`**
-  - Evaluación de múltiples casos sobre una sola variable
-  - Comparación con `if/else` en flexibilidad y claridad
-  - Uso combinado con ciclos y condicionales externas
+- **Control de flujo con `break` y `continue`**  
+  - Uso de `continue` para saltar a la siguiente iteración  
+  - Interrupción de bucles con `break`  
+  - Aplicación práctica dentro de un `while`
 
-- **Casting de tipos**
-  - Conversión explícita entre `int`, `float`, `double`, `char`
-  - Manipulación de tipos en operaciones matemáticas
-  - Visualización con `printf()` para observar el resultado del casting
+- **Funciones y prototipos**  
+  - Declaración de prototipos antes de `main()`  
+  - Definición de funciones `void` y con valor de retorno  
+  - Llamadas limpias y modularización del código
 
-- **Arreglos (`arrays`)**
-  - Declaración de arreglos de enteros
-  - Acceso por índice y visualización de elementos
-  - Introducción a impresión con ciclos `for` sobre arreglos
+- **Funciones recursivas**  
+  - Implementación de `factorial(n)` con caso base y recursividad  
+  - Retorno de valores de tipo `long` para evitar overflow  
+  - Lectura de datos por `scanf()` e impresión del resultado
+
+- **Punteros y llamada por referencia**  
+  - Declaración de punteros (`int *`) para recibir direcciones  
+  - Paso de `&variable` para modificarla dentro de la función  
+  - Desreferenciación con `*` para acceder y actualizar el dato apuntado
 
 ---
 
-## 🖨️ Ejemplo de impresión de arreglo en C
+## 🧠 Ejemplo de función por referencia (punteros)
 
 ```c
-int arreglo[] = {4, 7, 2, 9, 5};
-int tam = sizeof(arreglo) / sizeof(arreglo[0]);
+#include <stdio.h>
 
-for (int i = 0; i < tam; i++) {
-    printf("%d ", arreglo[i]);
+void cubo(int *n);    // Prototipo
+
+int main() {
+    int numero = 2;
+    cubo(&numero);   
+    printf("Valor al cubo: %i\n", numero);  // Imprime 8
+    return 0;
+}
+
+void cubo(int *n) {
+    *n = (*n) * (*n) * (*n);
 }
 ```
 
-> 🎯 Tip: En C no existe una función nativa que imprima un arreglo completo —siempre necesitás recorrerlo manualmente.
+> 🎯 Tip: Pasar la dirección con `&numero` permite modificar directamente la variable original sin necesidad de `return`.
 
 ---
 
-📅 Última actualización: *13/07/2025*  
+📅 Última actualización: *14/07/2025*  
 👨‍💻 Autor: Gabriel Jiménez  
-🚀 Progreso: 14/29 capítulos completados  
+🚀 Progreso: 20/29 capítulos completados  
 📁 Archivos generados hoy:  
-- `ciclo_for.c`  
-- `ciclo_while.c`  
-- `ciclo_do_while.c`  
-- `switch.c`  
-- `casting_basico.c`  
-- `casting_suma.c`  
-- `arreglo.c`
+- `arreglos_matrices.c`  
+- `break_continue.c`  
+- `funciones_basicas.c`  
+- `funciones_recursivas.c`  
+- `punteros_referencia.c`
 
----
-
-> Esta sección complementa el progreso previo, reflejando práctica aplicada, comparación crítica entre estructuras y un acercamiento progresivo a la lógica estructurada en C. ⚙️🧠📘
+> Esta sección consolida el dominio de estructuras dinámicas, control de flujo, modularidad y manejo de memoria con punteros en C. ⚙️🧠📘  
 ```
