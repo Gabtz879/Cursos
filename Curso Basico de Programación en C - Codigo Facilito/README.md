@@ -1,65 +1,69 @@
 ```markdown
-## ✅ Temas cubiertos en esta etapa (Capítulos 15 al 20)
+# 🐾 Gestión de Estructuras y Punteros en C
 
-- **Arreglos variables y matrices**  
-  - Declaración de VLA (Variable Length Arrays) con tamaño leído en tiempo de ejecución  
-  - Inicialización y recorrido con bucle `for`  
-  - Creación y acceso a matrices 2D usando dimensiones dinámicas
-
-- **Control de flujo con `break` y `continue`**  
-  - Uso de `continue` para saltar a la siguiente iteración  
-  - Interrupción de bucles con `break`  
-  - Aplicación práctica dentro de un `while`
-
-- **Funciones y prototipos**  
-  - Declaración de prototipos antes de `main()`  
-  - Definición de funciones `void` y con valor de retorno  
-  - Llamadas limpias y modularización del código
-
-- **Funciones recursivas**  
-  - Implementación de `factorial(n)` con caso base y recursividad  
-  - Retorno de valores de tipo `long` para evitar overflow  
-  - Lectura de datos por `scanf()` e impresión del resultado
-
-- **Punteros y llamada por referencia**  
-  - Declaración de punteros (`int *`) para recibir direcciones  
-  - Paso de `&variable` para modificarla dentro de la función  
-  - Desreferenciación con `*` para acceder y actualizar el dato apuntado
+Este bloque reúne tu avance técnico entre los **Capítulos 21 y 22 del curso**, junto con la práctica personalizada sobre estructuras, punteros y funciones, desarrollada con lógica dinámica e interacción en tiempo real. La práctica fue una exploración voluntaria fuera de los contenidos del curso, diseñada como reto estructural por solicitud directa.
 
 ---
 
-## 🧠 Ejemplo de función por referencia (punteros)
+## ✅ Temas cubiertos en esta etapa (Capítulos 21 y 22)
+
+- **Estructuras en C**
+  - Declaración de estructuras (`struct`) con múltiples campos
+  - Asignación directa de valores a una estructura
+  - Acceso a campos con `.` y uso de ternarios para impresión contextual
+
+- **Arreglos de estructuras**
+  - Creación de arreglos de estructuras usando punteros
+  - Almacenamiento de múltiples instancias vía índice (`perros[i]`)
+  - Entrada de datos mediante `scanf()` con formato `%s`, `%d` y `%f`
+
+- **Memoria dinámica con punteros**
+  - Uso de `malloc()` con `sizeof(struct Perro)` para reservar espacio
+  - Comprensión profunda del modelo: el puntero como referencia al bloque reservado
+  - Diferencia entre apuntar y almacenar —los datos viven fuera del puntero
+
+- **Funciones y llamada por referencia**
+  - Creación de `aumentoPeso()` con parámetros tipo puntero a estructura
+  - Modificación de valores desde fuera de `main()` mediante acceso directo
+  - Uso correcto de prototipos con tipos de dato exactos
+
+- **Control de impresión semántica**
+  - Uso de operadores ternarios para mostrar “mes” o “meses” según edad
+  - Estructura de impresión ordenada e intuitiva para cada perro registrado
+
+---
+
+## 🧪 Ejemplo integrado: función `aumentoPeso`
 
 ```c
-#include <stdio.h>
-
-void cubo(int *n);    // Prototipo
-
-int main() {
-    int numero = 2;
-    cubo(&numero);   
-    printf("Valor al cubo: %i\n", numero);  // Imprime 8
-    return 0;
-}
-
-void cubo(int *n) {
-    *n = (*n) * (*n) * (*n);
+void aumentoPeso(struct Perro *p, int n) {
+    for (int i = 0; i < n; i++) {
+        p[i].pesoKg += 2.5;
+    }
 }
 ```
 
-> 🎯 Tip: Pasar la dirección con `&numero` permite modificar directamente la variable original sin necesidad de `return`.
+> ✅ Llamada desde `main()`:
+> ```c
+> aumentoPeso(perros, n);
+> ```
+
+🎯 Este patrón demuestra cómo modificar múltiples instancias de estructura en memoria dinámica desde una función modular.
 
 ---
 
-📅 Última actualización: *14/07/2025*  
-👨‍💻 Autor: Gabriel Jiménez  
-🚀 Progreso: 20/29 capítulos completados  
-📁 Archivos generados hoy:  
-- `arreglos_matrices.c`  
-- `break_continue.c`  
-- `funciones_basicas.c`  
-- `funciones_recursivas.c`  
-- `punteros_referencia.c`
+## 📁 Archivos generados
 
-> Esta sección consolida el dominio de estructuras dinámicas, control de flujo, modularidad y manejo de memoria con punteros en C. ⚙️🧠📘  
+- `sizeof_array.c` — prueba de tamaño de arreglo en bytes
+- `estructura_basica.c` — impresión de un solo struct con ternario
+- `estructura_dinamica.c` — arreglo de structs, entrada por usuario, función de modificación, impresión contextual
+
+---
+
+📅 Última actualización: *21/07/2025*  
+👨‍💻 Autor: Gabriel Jiménez  
+🚀 Progreso: Capítulos 21 a 22 completados  
+🔍 Extras: Ejercicio técnico extendido fuera del curso (estructuras dinámicas + funciones)
+
+> Esta sección consolida tu dominio de memoria dinámica, flujo de funciones externas, uso de estructuras compuestas y razonamiento técnico con punteros. Te moviste con soltura entre práctica guiada, exploración libre y corrección precisa. 🧠⚙️🐾  
 ```
