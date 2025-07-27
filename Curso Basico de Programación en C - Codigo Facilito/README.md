@@ -1,69 +1,62 @@
 ```markdown
-# 🐾 Gestión de Estructuras y Punteros en C
+# 🐾 Estructuras Compuestas y Memoria Dinámica en C
 
-Este bloque reúne tu avance técnico entre los **Capítulos 21 y 22 del curso**, junto con la práctica personalizada sobre estructuras, punteros y funciones, desarrollada con lógica dinámica e interacción en tiempo real. La práctica fue una exploración voluntaria fuera de los contenidos del curso, diseñada como reto estructural por solicitud directa.
+Este bloque documenta tu progreso entre los **Capítulos 23 a 25 del curso básico de C**, enfocados en estructuras avanzadas y administración de memoria. Incluye prácticas guiadas y ampliadas sobre arreglos estructurales, estructuras anidadas y uso de `malloc()` y `free()` para reservar y liberar espacio dinámicamente. La implementación se complementa con simulaciones de carga interactiva y control visual por teclado.
 
 ---
 
-## ✅ Temas cubiertos en esta etapa (Capítulos 21 y 22)
-
-- **Estructuras en C**
-  - Declaración de estructuras (`struct`) con múltiples campos
-  - Asignación directa de valores a una estructura
-  - Acceso a campos con `.` y uso de ternarios para impresión contextual
+## ✅ Temas cubiertos en esta etapa (Capítulos 23 a 25)
 
 - **Arreglos de estructuras**
-  - Creación de arreglos de estructuras usando punteros
-  - Almacenamiento de múltiples instancias vía índice (`perros[i]`)
-  - Entrada de datos mediante `scanf()` con formato `%s`, `%d` y `%f`
+  - Declaración de múltiples instancias de `struct perro`
+  - Entrada secuencial de datos con `scanf()`: nombre, edad, peso
+  - Impresión contextual usando operadores ternarios según edad
+
+- **Estructuras anidadas**
+  - Uso de `struct owner` dentro de `struct dog`
+  - Captura de datos múltiples asociados a una instancia
+  - Entradas compuestas como dirección del dueño
 
 - **Memoria dinámica con punteros**
-  - Uso de `malloc()` con `sizeof(struct Perro)` para reservar espacio
-  - Comprensión profunda del modelo: el puntero como referencia al bloque reservado
-  - Diferencia entre apuntar y almacenar —los datos viven fuera del puntero
+  - Asignación de espacios con `malloc()` según cantidad de perros
+  - Reservas individuales para duplicar nombres con `strcpy()`
+  - Prácticas de liberación segura con `free()` para cada puntero
 
-- **Funciones y llamada por referencia**
-  - Creación de `aumentoPeso()` con parámetros tipo puntero a estructura
-  - Modificación de valores desde fuera de `main()` mediante acceso directo
-  - Uso correcto de prototipos con tipos de dato exactos
-
-- **Control de impresión semántica**
-  - Uso de operadores ternarios para mostrar “mes” o “meses” según edad
-  - Estructura de impresión ordenada e intuitiva para cada perro registrado
+- **Control de entrada/visualización**
+  - Implementación de `fgets()` para capturar cadenas con espacios
+  - Simulación de carga con control por teclado (`_kbhit()`, `_getch()`)
+  - Limpieza visual de pantalla mediante `Sleep()` y `fflush()`
 
 ---
 
-## 🧪 Ejemplo integrado: función `aumentoPeso`
+## 🧪 Fragmentos destacados
 
 ```c
-void aumentoPeso(struct Perro *p, int n) {
-    for (int i = 0; i < n; i++) {
-        p[i].pesoKg += 2.5;
-    }
-}
+struct dog {
+    char name[20];
+    char *p_name;
+};
+perros[i].p_name = malloc(strlen(perros[i].name) + 1);
+strcpy(perros[i].p_name, perros[i].name);
 ```
 
-> ✅ Llamada desde `main()`:
-> ```c
-> aumentoPeso(perros, n);
-> ```
-
-🎯 Este patrón demuestra cómo modificar múltiples instancias de estructura en memoria dinámica desde una función modular.
+> 🎯 Demuestra uso de memoria dinámica por campo y copia segura del buffer temporal
 
 ---
 
 ## 📁 Archivos generados
 
-- `sizeof_array.c` — prueba de tamaño de arreglo en bytes
-- `estructura_basica.c` — impresión de un solo struct con ternario
-- `estructura_dinamica.c` — arreglo de structs, entrada por usuario, función de modificación, impresión contextual
+- `estructura_dinamica.c` — uso de punteros y reserva de nombres dinámicos
+- `estructuras_anidadas.c` — declaración compuesta dueño–perro
+- `arreglos_struct.c` — impresión estructurada con unidad de edad
+- `carga_interactiva.c` — simulador visual con salida por teclado
 
 ---
 
-📅 Última actualización: *21/07/2025*  
+📅 Última actualización: *27/07/2025*  
 👨‍💻 Autor: Gabriel Jiménez  
-🚀 Progreso: Capítulos 21 a 22 completados  
-🔍 Extras: Ejercicio técnico extendido fuera del curso (estructuras dinámicas + funciones)
+🚀 Progreso: Capítulos 23 a 25 completados  
+🧩 Extras: Exploración libre con control visual, `fgets`, y simulación interactiva
 
-> Esta sección consolida tu dominio de memoria dinámica, flujo de funciones externas, uso de estructuras compuestas y razonamiento técnico con punteros. Te moviste con soltura entre práctica guiada, exploración libre y corrección precisa. 🧠⚙️🐾  
+> Consolidaste el manejo de estructuras anidadas, memoria dinámica, y control de entrada contextual. La práctica combinó precisión sintáctica con visualización personalizada, marcando un paso firme en tu dominio de C. 🧠💾📊  
 ```
