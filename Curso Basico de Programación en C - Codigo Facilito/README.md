@@ -1,62 +1,67 @@
 ```markdown
-# 🐾 Estructuras Compuestas y Memoria Dinámica en C
+# 📚 Estructuras Dinámicas y Listas Enlazadas en C
 
-Este bloque documenta tu progreso entre los **Capítulos 23 a 25 del curso básico de C**, enfocados en estructuras avanzadas y administración de memoria. Incluye prácticas guiadas y ampliadas sobre arreglos estructurales, estructuras anidadas y uso de `malloc()` y `free()` para reservar y liberar espacio dinámicamente. La implementación se complementa con simulaciones de carga interactiva y control visual por teclado.
+Este bloque documenta tu progreso entre los **Capítulos 26 a 29 del curso básico de C**, enfocados en **reserva dinámica de memoria** y **listas enlazadas**, aplicadas tanto en arreglos estructurados como en modelos de nodos enlazados. Se incorporan prácticas que consolidan el dominio sobre `malloc()`, duplicación de cadenas, y navegación entre nodos en estructuras dinámicas.
 
 ---
 
-## ✅ Temas cubiertos en esta etapa (Capítulos 23 a 25)
+## ✅ Temas cubiertos en esta etapa (Capítulos 26 a 29)
 
-- **Arreglos de estructuras**
-  - Declaración de múltiples instancias de `struct perro`
-  - Entrada secuencial de datos con `scanf()`: nombre, edad, peso
-  - Impresión contextual usando operadores ternarios según edad
+- **Arreglos dinámicos de estructuras**
+  - Creación de arreglo de `struct dog` con `malloc`
+  - Captura y almacenamiento de nombres mediante `fgets()` + buffer temporal
+  - Eliminación del salto de línea y duplicación segura con `strcpy()` o `strdup()`
 
-- **Estructuras anidadas**
-  - Uso de `struct owner` dentro de `struct dog`
-  - Captura de datos múltiples asociados a una instancia
-  - Entradas compuestas como dirección del dueño
+- **Lista enlazada de nodos**
+  - Definición de estructura `Libro` como nodo con `char *nombre` y apuntador `sig`
+  - Inserción secuencial de nodos al final de la lista
+  - Recorrido de lista con punteros y visualización de contenido y dirección
 
-- **Memoria dinámica con punteros**
-  - Asignación de espacios con `malloc()` según cantidad de perros
-  - Reservas individuales para duplicar nombres con `strcpy()`
-  - Prácticas de liberación segura con `free()` para cada puntero
+- **Manejo de memoria**
+  - Asignación dinámica para cada estructura
+  - Liberación cuidadosa de `p_name` y del arreglo principal
+  - Uso sugerido de `strdup()` para cadenas literales
 
-- **Control de entrada/visualización**
-  - Implementación de `fgets()` para capturar cadenas con espacios
-  - Simulación de carga con control por teclado (`_kbhit()`, `_getch()`)
-  - Limpieza visual de pantalla mediante `Sleep()` y `fflush()`
+- **Optimización de flujo**
+  - Eliminación de funciones innecesarias (`listaLibro`)
+  - Corrección de errores como ciclos infinitos en recorridos
+  - Mejoras visuales y estructurales para claridad y seguridad
 
 ---
 
 ## 🧪 Fragmentos destacados
 
 ```c
-struct dog {
-    char name[20];
-    char *p_name;
-};
+perros[i].name[strcspn(perros[i].name, "\n")] = '\0';
 perros[i].p_name = malloc(strlen(perros[i].name) + 1);
 strcpy(perros[i].p_name, perros[i].name);
 ```
 
-> 🎯 Demuestra uso de memoria dinámica por campo y copia segura del buffer temporal
+> 🐾 Demuestra atención a la captura limpia y reserva individual por campo dinámico
+
+```c
+nuevoLibro = (Libro*)malloc(sizeof(Libro));
+nuevoLibro->nombre = strdup(nombre);
+nuevoLibro->sig = NULL;
+```
+
+> 📘 Representa la creación de nodo para una lista enlazada con copia segura del nombre
 
 ---
 
 ## 📁 Archivos generados
 
-- `estructura_dinamica.c` — uso de punteros y reserva de nombres dinámicos
-- `estructuras_anidadas.c` — declaración compuesta dueño–perro
-- `arreglos_struct.c` — impresión estructurada con unidad de edad
-- `carga_interactiva.c` — simulador visual con salida por teclado
+- `perros_dinamicos.c` — Captura dinámica de nombres en arreglo estructurado
+- `lista_libros.c` — Inserción y recorrido de lista enlazada simple
+- `libros_strdup.c` — Versión robusta con duplicación de cadenas
+- `memoria_segura.c` — Implementación extendida de liberación por nodo
 
 ---
 
-📅 Última actualización: *27/07/2025*  
+📅 Última actualización: *28/07/2025*  
 👨‍💻 Autor: Gabriel Jiménez  
-🚀 Progreso: Capítulos 23 a 25 completados  
-🧩 Extras: Exploración libre con control visual, `fgets`, y simulación interactiva
+🚀 Progreso: Curso Básico de C Finalizado (Capítulos 1 a 29 completados)  
+🧩 Extras: Pulido estructural, sintaxis segura, y modelo de listas enlazadas
 
-> Consolidaste el manejo de estructuras anidadas, memoria dinámica, y control de entrada contextual. La práctica combinó precisión sintáctica con visualización personalizada, marcando un paso firme en tu dominio de C. 🧠💾📊  
+> Cerraste este curso dominando las estructuras dinámicas y aplicando prácticas limpias de recorrido, reserva y liberación de memoria. Tu implementación refleja precisión, crecimiento lógico, y visión modular hacia estructuras complejas. ¡Bien hecho, Gabriel! 🧠📘💻
 ```
