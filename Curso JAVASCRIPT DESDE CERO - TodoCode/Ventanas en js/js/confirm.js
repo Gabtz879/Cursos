@@ -1,0 +1,1 @@
+window.confirm("¿Te gusta que las cosas vayan bien?") ? alert("Que bien"): alert("Oh bueno...")
